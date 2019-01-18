@@ -1,0 +1,40 @@
+spring:
+    resources:
+      static-locations: classpath:/templates/,classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
+      
+    #数据库连接驱动  
+    datasource:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql:///wyesc?serverTimezone=UTC
+      username: root
+      password: 2580   
+      
+    #静态文件请求匹配方式
+    mvc:
+      static-path-pattern: /**
+      
+    #指定mybatis配置文件位置
+    mybatis:
+      #config-location: classpath:mybatis-config.xml
+      type-aliases-package: com.example.pojo
+      configuration:
+        #所有的表自动增长
+        use-generated-keys: true
+        #完全映射
+        auto-mapping-behavior: FULL
+        #开启懒加载
+        lazy-loading-enabled: true
+        #按需加载
+        aggressive-lazy-loading: false
+        #全局缓存
+        cache-enabled: true
+        
+        
+    #模板引擎
+    thymeleaf:
+      encoding: UTF-8
+      #开发时关闭缓存,不然没法看到实时页面
+      cache: false
+      prefix: classpath:/templates/
+      suffix: .html
+        
